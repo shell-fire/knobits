@@ -42,20 +42,17 @@ export default function TermsPage() {
         </div>
       </main>
 
-      <footer className="border-t py-6 md:py-0">
-        <div className="container flex h-14 items-center justify-between">
+      <footer className="border-t py-6">
+        <div className="container flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Shellfire GmbH. {t.footer.copyright}
+            © {new Date().getFullYear()} Shellfire GmbH. {language === "de" ? "Alle Rechte vorbehalten." : "All rights reserved."}
           </p>
-          <nav className="flex gap-4 sm:gap-6">
+          <nav className="flex gap-4">
             <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground">
-              {t.footer.legal.privacy.title}
-            </Link>
-            <Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground">
-              {t.footer.legal.terms.title}
+              {language === "de" ? "Datenschutzerklärung" : "Privacy Policy"}
             </Link>
             <Link href="/imprint" className="text-sm text-muted-foreground hover:text-foreground">
-              {t.footer.legal.imprint.title}
+              {language === "de" ? "Impressum" : "Legal Notice"}
             </Link>
           </nav>
         </div>

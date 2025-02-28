@@ -98,11 +98,6 @@ export default function ImprintPage() {
                   VAT Reg No: DE352237087
                 </p>
 
-                <p>
-                  <Link href="/terms" className="underline">Terms and Conditions</Link><br />
-                  <Link href="/privacy" className="underline">Privacy Statement</Link>
-                </p>
-
                 <h2>External links:</h2>
                 <p>
                   We have no control over the contents of external sites and assume no liability for these. 
