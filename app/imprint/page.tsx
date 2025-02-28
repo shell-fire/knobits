@@ -1,7 +1,8 @@
 "use client"
 
-import { useLanguage } from "../language-context"
 import Link from "next/link"
+import { useLanguage } from "../language-context"
+import { Brain, Lock, Save, Shield } from "lucide-react"
 
 export default function ImprintPage() {
   const { language } = useLanguage()
@@ -113,9 +114,12 @@ export default function ImprintPage() {
 
       <footer className="border-t py-6">
         <div className="container flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Shellfire GmbH. {language === "de" ? "Alle Rechte vorbehalten." : "All rights reserved."}
-          </p>
+          <div>
+            <p className="text-sm text-muted-foreground">
+              © {new Date().getFullYear()} Shellfire GmbH. {language === "de" ? "Alle Rechte vorbehalten." : "All rights reserved."}
+            </p>
+            <p>Knobits<br/>KI-gestützte Knowledgebase für Unternehmen. DSGVO-konform, sicher in Deutschland gehostet.</p>
+          </div>
           <nav className="flex gap-4">
             <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground">
               {language === "de" ? "Datenschutzerklärung" : "Privacy Policy"}
@@ -123,6 +127,13 @@ export default function ImprintPage() {
             <Link href="/imprint" className="text-sm text-muted-foreground hover:text-foreground">
               {language === "de" ? "Impressum" : "Legal Notice"}
             </Link>
+            <Link href="/product" className="text-sm text-muted-foreground hover:text-foreground">Product</Link>
+            <Link href="/why" className="text-sm text-muted-foreground hover:text-foreground">Why Knobits AI?</Link>
+            <Link href="/how" className="text-sm text-muted-foreground hover:text-foreground">How it Works</Link>
+            <Link href="/services" className="text-sm text-muted-foreground hover:text-foreground">Our Services</Link>
+            <Link href="/legal" className="text-sm text-muted-foreground hover:text-foreground">Legal</Link>
+            <Link href="/security" className="text-sm text-muted-foreground hover:text-foreground">Security</Link>
+
           </nav>
         </div>
       </footer>

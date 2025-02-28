@@ -1,9 +1,9 @@
 "use client"
 
 import Link from "next/link"
-import { Brain } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { useLanguage } from "../language-context"
+import { Brain, Lock, Save, Shield } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export default function TermsPage() {
   const { language, setLanguage, t } = useLanguage()
@@ -44,20 +44,32 @@ export default function TermsPage() {
 
       <footer className="border-t py-6">
         <div className="container flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">
+          <div>
+            <p className="text-sm text-muted-foreground">
+              Knobits<br/>
+              KI-gestützte Knowledgebase für Unternehmen. DSGVO-konform, sicher in Deutschland gehostet.
+            </p>
+            <nav className="mt-4 flex flex-col gap-2">
+              <Link href="/product" className="text-sm text-muted-foreground hover:text-foreground">Product</Link>
+              <Link href="/why-knobits" className="text-sm text-muted-foreground hover:text-foreground">Why Knobits AI?</Link>
+              <Link href="/how-it-works" className="text-sm text-muted-foreground hover:text-foreground">How it Works</Link>
+              <Link href="/services" className="text-sm text-muted-foreground hover:text-foreground">Our Services</Link>
+            </nav>
+            <nav className="mt-4 flex flex-col gap-2">
+              <Link href="/legal" className="text-sm text-muted-foreground hover:text-foreground">Legal</Link>
+              <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground">Privacy Policy</Link>
+              <Link href="/imprint" className="text-sm text-muted-foreground hover:text-foreground">Legal Notice</Link>
+              <Link href="/security" className="text-sm text-muted-foreground hover:text-foreground">Security</Link>
+              <p className="text-sm text-muted-foreground">GDPR compliant</p>
+              <p className="text-sm text-muted-foreground">Hosted in Germany</p>
+              <p className="text-sm text-muted-foreground">Privacy hosting experience since 2002</p>
+            </nav>
+          </div>
+          <p className="text-sm text-muted-foreground order-first md:order-none">
             © {new Date().getFullYear()} Shellfire GmbH. {language === "de" ? "Alle Rechte vorbehalten." : "All rights reserved."}
           </p>
-          <nav className="flex gap-4">
-            <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground">
-              {language === "de" ? "Datenschutzerklärung" : "Privacy Policy"}
-            </Link>
-            <Link href="/imprint" className="text-sm text-muted-foreground hover:text-foreground">
-              {language === "de" ? "Impressum" : "Legal Notice"}
-            </Link>
-          </nav>
         </div>
       </footer>
     </div>
   )
 }
-
