@@ -29,7 +29,6 @@ export default function ImprintPage() {
             <div className="prose dark:prose-invert max-w-none">
               {language === "de" ? (
                 <>
-                  <h2>Impressum</h2>
                   <p>
                     Shellfire GmbH<br />
                     Altkönigstraße 10A<br />
@@ -65,7 +64,6 @@ export default function ImprintPage() {
                 </>
               ) : (
                 <>
-                  <h2>Legal Notice</h2>
                   <p>
                     Shellfire GmbH<br />
                     Altkönigstraße 10A<br />
