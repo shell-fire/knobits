@@ -24,7 +24,7 @@ export default function ImprintPage() {
         <div className="container max-w-3xl py-12 md:py-24 lg:py-32">
           <div className="space-y-8">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              {language === "de" ? "Impressum" : "Legal Notice"}
+              {language === "de" ? "Impressum" : "Imprint"}
             </h1>
             <div className="prose dark:prose-invert max-w-none">
               {language === "de" ? (
