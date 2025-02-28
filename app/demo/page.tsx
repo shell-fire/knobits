@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { useLanguage } from "../language-context"
 import Link from "next/link"
-import { Brain, CheckCircle } from "lucide-react"
+import { Brain, CheckCircle, Shield, Lock, Save } from "lucide-react"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 
 export default function DemoPage() {
