@@ -62,6 +62,13 @@ export const translations = {
       },
       copyright: "Shellfire GmbH. Alle Rechte vorbehalten.",
     },
+    contact: {
+      submit: "Demo anfragen",
+      successMessage: "Vielen Dank für Ihre Nachricht! Wir werden uns umgehend bei Ihnen melden.",
+      errorMessage: "Fehler beim Senden der E-Mail. Bitte versuchen Sie es später noch einmal.",
+      phone: "Telefonnummer",
+      phonePlaceholder: "Ihre Telefonnummer für Rückrufe",
+    },
   },
   en: {
     nav: {
@@ -126,9 +133,15 @@ export const translations = {
       },
       copyright: "Shellfire GmbH. All rights reserved.",
     },
+    contact: {
+      submit: "Request Demo",
+      successMessage: "Thank you for your message! We will get back to you as soon as possible.",
+      errorMessage: "Failed to send email. Please try again later.",
+      phone: "Phone Number",
+      phonePlaceholder: "Your phone number for callbacks",
+    },
   },
 }
 
 export type Language = keyof typeof translations
 export type Translation = typeof translations.en
-

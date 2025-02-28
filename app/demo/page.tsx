@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState } from "react"
@@ -12,7 +11,7 @@ import { Brain, CheckCircle } from "lucide-react"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 
 export default function DemoPage() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
   const [submitError, setSubmitError] = useState("")
@@ -23,7 +22,7 @@ export default function DemoPage() {
     phone: "",
     message: ""
   })
-  
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
@@ -33,7 +32,7 @@ export default function DemoPage() {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitError("")
-    
+
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -42,22 +41,29 @@ export default function DemoPage() {
         },
         body: JSON.stringify(formData),
       })
-      
-      if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.message || "Failed to submit form")
+
+      const result = await response.json();
+
+      if (response.ok) {
+        // Use translated success message based on current language
+        setSubmitSuccess(true);
+        setSubmitError("");
+        setFormData({
+          name: "",
+          company: "",
+          email: "",
+          phone: "",
+          message: ""
+        });
+      } else {
+        // Use translated error message based on current language
+        setSubmitError(result.message ? result.message[language] : t.demo.errorMessage);
       }
-      
-      setSubmitSuccess(true)
-      setFormData({
-        name: "",
-        company: "",
-        email: "",
-        phone: "",
-        message: ""
-      })
     } catch (error) {
-      setSubmitError(error instanceof Error ? error.message : "An unknown error occurred")
+      setSubmitError(language === "de" ? 
+        "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später erneut." : 
+        "An unexpected error occurred. Please try again later."
+      );
     } finally {
       setIsSubmitting(false)
     }
@@ -82,13 +88,13 @@ export default function DemoPage() {
               <h1 className="text-3xl font-bold">{t.demo.title}</h1>
               <p className="text-muted-foreground">{t.demo.description}</p>
             </div>
-            
+
             {submitSuccess ? (
               <Alert className="bg-green-50 dark:bg-green-950 border-green-200 dark:border-green-800">
                 <CheckCircle className="h-4 w-4 text-green-600 dark:text-green-400" />
-                <AlertTitle>Message Sent Successfully!</AlertTitle>
+                <AlertTitle>{t.demo.successMessage}</AlertTitle>
                 <AlertDescription>
-                  Thank you for your interest in Knobits AI. We will get back to you at the email address you provided as soon as possible.
+                  {t.demo.successDescription}
                 </AlertDescription>
               </Alert>
             ) : (
@@ -151,14 +157,14 @@ export default function DemoPage() {
                     required 
                   />
                 </div>
-                
+
                 {submitError && (
                   <Alert variant="destructive">
                     <AlertTitle>Error</AlertTitle>
                     <AlertDescription>{submitError}</AlertDescription>
                   </Alert>
                 )}
-                
+
                 <Button type="submit" className="w-full" disabled={isSubmitting}>
                   {isSubmitting ? "Sending..." : t.demo.submit}
                 </Button>

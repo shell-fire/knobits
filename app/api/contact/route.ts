@@ -65,14 +65,25 @@ ${message}
     const info = await transporter.sendMail(mailOptions);
     
     await logToFile(`Email sent successfully. MessageId: ${info.messageId || 'unknown'}`);
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ 
+      success: true,
+      message: {
+        de: "Vielen Dank für Ihre Nachricht! Wir werden uns umgehend bei Ihnen melden.",
+        en: "Thank you for your message! We will get back to you as soon as possible."
+      }
+    });
   } catch (error) {
     console.error('Error sending email:', error);
     await logToFile(`Error sending email: ${error instanceof Error ? error.message : String(error)}`, 'error');
     await logToFile(`Error stack: ${error instanceof Error ? error.stack : 'No stack trace'}`, 'error');
 
     return NextResponse.json(
-      { message: "Failed to send email. Please try again later." },
+      { 
+        message: {
+          de: "Fehler beim Senden der E-Mail. Bitte versuchen Sie es später noch einmal.",
+          en: "Failed to send email. Please try again later."
+        }
+      },
       { status: 500 }
     );
   }
