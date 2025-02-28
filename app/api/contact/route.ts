@@ -1,9 +1,7 @@
-import { NextResponse } from "next/server";
-import { exec } from "child_process";
-import { promisify } from "util";
-import fs from 'fs/promises';
 
-const execPromise = promisify(exec);
+import { NextResponse } from "next/server";
+import fs from 'fs/promises';
+import nodemailer from 'nodemailer';
 
 // Create a log function to help with debugging
 async function logToFile(message: string, type: 'info' | 'error' = 'info') {
@@ -34,39 +32,39 @@ export async function POST(req: Request) {
       );
     }
 
+    // Create a transporter using the sendmail transport
+    const transporter = nodemailer.createTransport({
+      sendmail: true,
+      newline: 'unix',
+      path: '/usr/sbin/sendmail'
+    });
+
     // Format the email content
     const subject = `Contact Form Submission from ${name}`;
     const companyInfo = company ? `Company: ${company}\n` : '';
     const phoneInfo = phone ? `Phone: ${phone}\n` : '';
-
-    // Creating a proper email with headers
-    const emailContent = `To: info@shellfire.de
-From: ${name} <blogserver@shellfire.de>
-Reply-To: ${email}
-Subject: ${subject}
-
+    
+    // Prepare email data
+    const mailOptions = {
+      from: `"${name}" <blogserver@shellfire.de>`,
+      to: 'info@shellfire.de',
+      replyTo: email,
+      subject: subject,
+      text: `
 Name: ${name}
 Email: ${email}
 ${companyInfo}${phoneInfo}
 Message:
 ${message}
-`;
+      `
+    };
 
-    // Create a safe email content for sendmail (escaping quotes and special characters)
-    const safeEmailContent = emailContent.replace(/"/g, '\\"').replace(/`/g, '\\`');
+    await logToFile(`Sending email with options: ${JSON.stringify(mailOptions, null, 2)}`);
 
-    // Log the command we're about to execute
-    const sendmailCommand = `/usr/sbin/sendmail -t`;
-    await logToFile(`Executing sendmail with command: ${sendmailCommand}`);
-    await logToFile(`Email content: ${safeEmailContent.substring(0, 500)}...`);
-
-    // Use a more reliable approach: pipe the content directly to sendmail
-    const { stdout, stderr } = await execPromise(`echo "${safeEmailContent}" | ${sendmailCommand}`);
-
-    if (stdout) await logToFile(`Sendmail stdout: ${stdout}`);
-    if (stderr) await logToFile(`Sendmail stderr: ${stderr}`, 'error');
-
-    await logToFile('Email sent successfully');
+    // Send email
+    const info = await transporter.sendMail(mailOptions);
+    
+    await logToFile(`Email sent successfully. MessageId: ${info.messageId || 'unknown'}`);
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Error sending email:', error);
