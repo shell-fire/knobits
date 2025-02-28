@@ -30,7 +30,7 @@ export default function PrivacyPage() {
               {language === "de" ? (
                 <>
                   <h2>Datenschutzerklärung für knobits.de</h2>
-                  <p><em>Letzte Aktualisierung: 29. Februar 2025</em></p>
+                  <p><em>Letzte Aktualisierung: 28. Februar 2025</em></p>
 
                   <p>Vielen Dank, dass Sie knobits.de besuchen („wir", „uns" oder „unser"). Diese Datenschutzerklärung informiert Sie darüber, wie wir Ihre personenbezogenen Daten erfassen, verwenden, speichern und schützen, wenn Sie unsere Website und Dienstleistungen nutzen. Durch den Zugriff auf oder die Nutzung unserer Website erklären Sie sich mit den in dieser Erklärung beschriebenen Praktiken einverstanden.</p>
 
@@ -89,7 +89,7 @@ export default function PrivacyPage() {
               ) : (
                 <>
                   <h2>Privacy Policy for knobits.de</h2>
-                  <p><em>Last updated: June 1, 2024</em></p>
+                  <p><em>Last updated: February 28, 2025</em></p>
 
                   <p>Thank you for visiting knobits.de ("we," "us," or "our"). This Privacy Policy explains how we collect, use, store, and protect your personal information when you interact with our website and services. By accessing or using our website, you agree to the practices described in this policy.</p>
 
