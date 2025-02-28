@@ -261,7 +261,7 @@ const translations = {
           title: "Terms and Conditions",
         },
         imprint: {
-          title: "Legal Notice",
+          title: "Imprint",
         },
       },
       security: {
