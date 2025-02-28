@@ -160,7 +160,7 @@ export default function DemoPage() {
 
                 {submitError && (
                   <Alert variant="destructive">
-                    <AlertTitle>Error</AlertTitle>
+                    <AlertTitle>{language === "de" ? "Fehler" : "Error"}</AlertTitle>
                     <AlertDescription>{submitError}</AlertDescription>
                   </Alert>
                 )}
