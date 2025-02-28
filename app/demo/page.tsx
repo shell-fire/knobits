@@ -86,9 +86,9 @@ export default function DemoPage() {
             {submitSuccess ? (
               <Alert className="bg-green-50 dark:bg-green-950 border-green-200 dark:border-green-800">
                 <CheckCircle className="h-4 w-4 text-green-600 dark:text-green-400" />
-                <AlertTitle>Success!</AlertTitle>
+                <AlertTitle>Message Sent Successfully!</AlertTitle>
                 <AlertDescription>
-                  Thank you for your interest. We'll get back to you soon.
+                  Thank you for your interest in Knobits AI. We will get back to you at the email address you provided as soon as possible.
                 </AlertDescription>
               </Alert>
             ) : (
