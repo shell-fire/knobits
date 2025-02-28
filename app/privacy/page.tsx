@@ -85,7 +85,6 @@ export default function PrivacyPage() {
                     <li><strong>Telefon:</strong> +49 (0) 6101 659 252 40</li>
                     <li><strong>Adresse:</strong> Shellfire GmbH, Altkönigstraße 10A, 61389 Schmitten, Deutschland</li>
                   </ul>
-                  <p><em>Hinweis: Diese Datenschutzerklärung dient ausschließlich zu Informationszwecken und stellt keine rechtliche Beratung dar. Wir empfehlen, einen Rechtsberater zu konsultieren, um sicherzustellen, dass Ihre Datenschutzpraktiken allen geltenden Gesetzen und Vorschriften entsprechen.</em></p>
                 </>
               ) : (
                 <>
@@ -145,7 +144,6 @@ export default function PrivacyPage() {
                     <li><strong>Phone:</strong> +49 (0) 6101 659 252 40</li>
                     <li><strong>Address:</strong> Shellfire GmbH, Altkönigstraße 10A, 61389 Schmitten, Germany</li>
                   </ul>
-                  <p><em>Please note: This privacy policy is provided for informational purposes only and should not be construed as legal advice. We recommend consulting with a legal professional to ensure that your privacy practices comply with all applicable laws and regulations.</em></p>
                 </>
               )}
             </div>
