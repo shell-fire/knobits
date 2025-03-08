@@ -15,6 +15,7 @@ import {
   Lightbulb,
   Globe,
   Save,
+  Puzzle,
 } from "lucide-react"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { useLanguage } from "./language-context"
@@ -47,6 +48,15 @@ export default function LandingPage() {
           : t.why.challenges.tacticalErrors.description,
       icon: Search,
     },
+    {
+      title: language === "de" ? "Datenchaos" : t.why.challenges.dataChaos.title,
+      description:
+        language === "de"
+          ? "Fragmentiertes Wissen und verstreute Informationen, gehen in verschiedenen Systemen und Kanälen verloren."
+          : t.why.challenges.dataChaos.description,
+      icon: Puzzle,
+    },
+
     {
       title: language === "de" ? "Fachkräftemangel" : t.why.challenges.skilledWorkerShortage.title,
       description:

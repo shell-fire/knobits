@@ -128,6 +128,11 @@ const translations = {
           description:
             "Without quick access to relevant data, decisions are often made based on incomplete information.",
         },
+        dataChaos: {
+          title: "Data Chaos",
+          description:
+            "Fragmented knowledge and scattered information gets lost across various systems and channels.",
+        },
         skilledWorkerShortage: {
           title: "Skilled Worker Shortage",
           description:
