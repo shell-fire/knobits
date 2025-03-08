@@ -104,7 +104,7 @@ export default function LandingPage() {
       title: language === "de" ? "Intelligente Knowledgebase" : t.what.features.knowledgebase.title,
       description:
         language === "de"
-          ? "Eine vollautomatische, KI-gestützte Knowledgebase, die sich Ihren Bedürfnissen anpasst."
+          ? "Eine vollautomatische, KI-gestützte Knowledgebase, die sich Ihren Bedürfnissen anpasst und Ordnung ins Chaos bringt."
           : t.what.features.knowledgebase.description,
       icon: Brain,
       benefits:

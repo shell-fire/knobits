@@ -171,7 +171,7 @@ const translations = {
       features: {
         knowledgebase: {
           title: "Intelligent Knowledge Base",
-          description: "A fully automated, AI-powered knowledge base that adapts to your needs.",
+          description: "A fully automated, AI-powered knowledge base that adapts to your needs and brings order to chaos.",
           benefits: [
             "Automatic integration of emails (Outlook, Gmail, etc.)",
             "Import of Office documents (Word, Excel, PowerPoint)",
