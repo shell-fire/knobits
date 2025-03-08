@@ -52,7 +52,7 @@ export default function LandingPage() {
       title: language === "de" ? "Datenchaos" : t.why.challenges.dataChaos.title,
       description:
         language === "de"
-          ? "Fragmentiertes Wissen und verstreute Informationen, gehen in verschiedenen Systemen und Kanälen verloren."
+          ? "Fragmentiertes Wissen und verstreute Informationen gehen in verschiedenen Systemen und Kanälen verloren."
           : t.why.challenges.dataChaos.description,
       icon: Puzzle,
     },
